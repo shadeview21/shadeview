@@ -1034,3 +1034,6 @@ if __name__ == '__main__':
     if shade_classifier_model is None:
         print("CRITICAL: Machine Learning model could not be loaded or trained. Shade prediction will not work.")
     app.run(debug=True)
+@app.before_first_request
+def initialize_database_if_needed():
+    init_db()
